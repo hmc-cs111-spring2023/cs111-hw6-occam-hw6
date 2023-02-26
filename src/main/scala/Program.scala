@@ -1,4 +1,6 @@
 import machines.regex._
+import machines.given
+import machines._
 
 @main
 def main() = {
@@ -6,24 +8,17 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 1
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO: Make it possible to replace the definitions with:
-  //
-  //     val zero = '0'
-  //     val one  = '1'
-  //     etc.
-  //
 
-  val zero = Character('0')
-  val one = Character('1')
-  val two = Character('2')
-  val three = Character('3')
-  val four = Character('4')
-  val five = Character('5')
-  val six = Character('6')
-  val seven = Character('7')
-  val eight = Character('8')
-  val nine = Character('9')
+  val zero = '0'
+  val one = '1'
+  val two = '2'
+  val three = '3'
+  val four = '4'
+  val five = '5'
+  val six = '6'
+  val seven = '7'
+  val eight = '8'
+  val nine = '9'
 
   require(zero matches "0")
   require(one matches "1")
@@ -39,38 +34,16 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 2
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO: Make it possible to replace the definition with:
-  //
-  //     val answer = "42"
-  //
 
-  val answer = Concat(four, two)
+  val answer = "42"
 
   require(answer matches "42")
 
   //////////////////////////////////////////////////////////////////////////////
   // Part 3a
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO: Make it possible to replace the definition with:
-  //
-  //    val digit = '0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9'
-  //
 
-  val digit = Union(
-    zero,
-    Union(
-      one,
-      Union(
-        two,
-        Union(
-          three,
-          Union(four, Union(five, Union(six, Union(seven, Union(eight, nine)))))
-        )
-      )
-    )
-  )
+  val digit = '0' || '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9'
 
   require(digit matches "0")
   require(digit matches "1")
@@ -86,26 +59,16 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 3b
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO:  Make it possible to replace the definition with:
-  //
-  //     val pi = '3' ~ '1' ~ '4'
-  //
 
-  val pi = Concat(Character('3'), Concat(Character('1'), Character('4')))
+  val pi = '3' ~ '1' ~ '4'
 
   require(pi matches "314")
 
   //////////////////////////////////////////////////////////////////////////////
   // Part 3c
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO:  Make it possible to replace the definition with:
-  //
-  //     val zeroOrMoreDigits = digit <*>
-  //
 
-  val zeroOrMoreDigits = Star(digit)
+  val zeroOrMoreDigits = digit <*>
 
   require(zeroOrMoreDigits matches "")
   require(zeroOrMoreDigits matches "0")
@@ -116,13 +79,8 @@ def main() = {
   //////////////////////////////////////////////////////////////////////////////
   // Part 3d
   //////////////////////////////////////////////////////////////////////////////
-  //
-  // TODO:  Make it possible to replace the definition with:
-  //
-  //     val number = digit <+>
-  //
 
-  val number = Concat(digit, zeroOrMoreDigits)
+  val number = digit <+>
 
   require(!(number matches ""))
   require(number matches "0")
@@ -139,7 +97,7 @@ def main() = {
   //     val cThree = 'c'{3}
   //
 
-  val cThree = Concat(Character('c'), Concat(Character('c'), Character('c')))
+  val cThree = 'c'{3}
 
   require(cThree matches "ccc")
 
