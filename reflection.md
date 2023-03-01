@@ -13,7 +13,7 @@ combination of two existing classes: `Concat` and `Star`.
 
 The `{n}` operator was definitely the most difficult to write because there were
 a lot of different approaches that could be used.
-I started by sing a for loop, but this required defining a variable before the
+I started by using a for loop, but this required defining a variable before the
 loop that is repeatedly modified, so I then tried using a recursive approach.
 The recursive approach seemed much cleaner with the only catch being that I had
 to check for `n == 1` if I wanted to avoid concatenating to `Epsilon` when
@@ -70,5 +70,6 @@ trait.
 Within this method, recursive pattern matching could be used to determine what
 string to show. For example, `Empty` could return `∅`, `Charcater('c')` could
 show `c`, `Concat('a', 'b')` could show `ab`, etc.
-This wouldn't directly help the user type the language, but it would help them see what they type which could be helpful if they are doing operations on with
+This wouldn't directly help the user type the language, but it would help them
+see what they type which could be helpful if they are doing operations on with
 languages stored in variables rather than typing it all out.
